@@ -1,0 +1,42 @@
+@startuml
+!pragma layout smetana
+
+
+:Kunde:
+:Autovermietung: as AV
+:Premiumkunde: as PK
+
+
+
+(Fahrzeugaufnahme) as (FA)
+(Fahrzeugübersicht) as (FÜ)
+(Vorbestellen)
+(Leihen)
+(Rückgabe)
+(Nachtschalter)
+(Tanken)
+
+
+
+AV--FA
+AV--FÜ
+Kunde---Vorbestellen
+Kunde--Leihen
+Kunde---Rückgabe
+Kunde--Tanken
+AV---Leihen
+AV---Rückgabe
+PK--Nachtschalter
+
+
+
+(Rückgabe)-->Leihen : <<include>>
+(Vorbestellen)-->Leihen : <<extend>>
+(Nachtschalter)-|>Rückgabe : <<inherit>>
+PK-|>Kunde: <<inherit>>
+Tanken-->(Rückgabe) : <<include>>
+
+
+
+
+@enduml

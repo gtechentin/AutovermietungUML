@@ -1,0 +1,68 @@
+@startuml
+!pragma layout smetana
+class Auto{
+str Antriebsart
+int MaximaleGeschwindigkeit
+float AktuelleGeschwindigkeit
+int Kilomenterstand
+
+
+void Beschleunigen()
+void Bremsen()
+}
+
+
+
+class PKW{
+int Sitzplaetze
+}
+
+
+
+class LKW{
+int Achsenzahl
+int Maximallast
+bool Beladen()
+bool Entladen()
+}
+
+
+
+class Cabrio{
+str Verdeckart
+bool VerdeckOeffnen()
+bool VerdeckSchliessen()
+}
+
+
+
+class Pickup{
+bool HasAllrad
+}
+
+
+
+class Van{
+bool HasDachbox
+}
+
+
+
+Van --|> PKW
+Cabrio --|> PKW
+Pickup --|> PKW
+PKW --|> Auto
+LKW --|> Auto
+
+
+
+object RotesCabrio{
+MaximalGeschwindigkeit = 250
+Sitzplaetze = 2
+Verdeckart = "Hardtop"
+}
+
+
+
+
+@enduml
